@@ -19,5 +19,6 @@ from game_info import views as game_info_views
 
 urlpatterns = [
 	path('game-info/', include('game_info.urls')),
+	path('user/', include('user.urls')),
     path('admin/', admin.site.urls),
 ]
