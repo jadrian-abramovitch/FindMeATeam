@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Confirm Deletion</title>
+</head>
+<body>
+	<form method="POST">
+		{% csrf_token %}
+		<div>
+			<button type="submit">Yes, Delete</button>
+			<a href="{% url 'view' object.id %}">Cancel</a>	
+		</div>
+	</form>
+</body>
+</html>
