@@ -9,6 +9,7 @@
 	<div>Game: {{ GameInfo.game }}</div>
 	<div>Positions: {{ GameInfo.positions_played }}</div>
 	<div>Date: {{ GameInfo.date_posted }}</div>
+	<a href="{% url 'view' GameInfo.id %}">Click Here</a>
 	{% endfor %}
 </body>
 </html>
