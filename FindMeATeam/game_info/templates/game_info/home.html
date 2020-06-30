@@ -1,15 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Hello World</title>
-</head>
+{% extends 'game_info/base.html' %}
+{% load static %}
+{% block content %}
 <body>
+<!-- 	<div class="row">
 	{% for GameInfo in GameInfos %}
-	<div>Author: {{ GameInfo.author }}</div>
-	<div>Game: {{ GameInfo.game }}</div>
-	<div>Positions: {{ GameInfo.positions_played }}</div>
-	<div>Date: {{ GameInfo.date_posted }}</div>
-	<a href="{% url 'view' GameInfo.id %}">Click Here</a>
+	<div class="col-sm-3">
+	<div class="card border-dark mb-3" style="display: inline-block">
+	  <div class="card-body" style="background-color: #B2B2B2">
+	    <h5 class="card-title card-body-custom">{{ GameInfo.author }} Is Looking For A Team!</h5>
+	    <p class="card-text">Game: {{ GameInfo.game }}</p>
+	    <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
+	    <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
+	  </div>
+	</div>
+	</div>
 	{% endfor %}
+
+	</div> -->
+	{% for GameInfo in GameInfos %}
+	<div class="card border-dark mb-3" style="display: inline-block">
+  	<div class="card-header">Game Info Post</div>
+  	<div class="card-body text-dark">
+    <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5>
+    <p class="card-text">Game: {{ GameInfo.game }}</p>
+    <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
+    <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
+    </div>
+    </div>
+{% endfor %}
+
 </body>
-</html>
+{% endblock content %}
