@@ -32,14 +32,17 @@
 			<ul class="navbar-nav justify-content-end">
 			  {% if user.is_authenticated %}
 			  	<li class="nav-item">
-			      <a class="nav-link active" href="#">Profile</a>
+			      <a class="nav-link active" href="{% url 'view-user' user %}">Profile</a>
+			    </li>
+			  	<li class="nav-item">
+			      <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
 			    </li>
 			  {% else %}
 			  	<li class="nav-item">
-			      <a class="nav-link active" href="#">Login</a>
+			      <a class="nav-link active" href="{% url 'login' %}">Login</a>
 			    </li>
 			    <li class="nav-item">
-			      <a class="nav-link active" href="#">Sign Up!</a>
+			      <a class="nav-link active" href="{% url 'register' %}">Sign Up!</a>
 			    </li>
 			  {% endif %}
 			</ul>

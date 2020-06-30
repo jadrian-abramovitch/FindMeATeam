@@ -17,17 +17,22 @@
 	{% endfor %}
 
 	</div> -->
+	
+	<div class="row">
 	{% for GameInfo in GameInfos %}
-	<div class="card border-dark mb-3" style="display: inline-block">
-  	<div class="card-header">Game Info Post</div>
-  	<div class="card-body text-dark">
-    <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5>
-    <p class="card-text">Game: {{ GameInfo.game }}</p>
-    <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
-    <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
+	<div class="col-sm-4">
+	<div class="card border-dark my-2" style="display: inline-block; width: 100%;">
+  	  <div class="card-header">Game Info Post</div>
+  	  <div class="card-body text-dark">
+        <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5>
+        <p class="card-text">Game: {{ GameInfo.game }}</p>
+        <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
+        <p class="card-text">Rank: {{ GameInfo.rank }}</p>
+        <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
+      </div>
     </div>
     </div>
-{% endfor %}
-
-</body>
+    {% endfor %}
+    </div>
+    </body>
 {% endblock content %}
