@@ -23,7 +23,7 @@ def register(request):
 		form = RegisterUserForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('profile')
+			return redirect('login')
 
 	else:
 		form = RegisterUserForm()

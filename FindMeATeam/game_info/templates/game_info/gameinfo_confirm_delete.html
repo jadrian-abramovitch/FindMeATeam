@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html>
+{% extends 'game_info/base.html' %}
+{% block content %}
 <head>
 	<title>Confirm Deletion</title>
 </head>
 <body>
+
+<div class="jumbotron jumbotron-fluid m-3">
+  <div class="container">
+    <h1 class="display-4">Confirm Deletion of Post?</h1>
+    <hr class="my-4">
 	<form method="POST">
 		{% csrf_token %}
 		<div>
-			<button type="submit">Yes, Delete</button>
-			<a href="{% url 'view' object.id %}">Cancel</a>	
+			<button class="col-sm-2 btn btn-primary btn-outline-light" type="submit" style="background-color: #5a1d3c;">Yes, Delete</button>
+			<a class="col-sm-2 btn btn-primary btn-outline-light" href="{% url 'view' object.id %}" role="button" style="background-color: #5a1d3c;">Cancel</a>	
 		</div>
 	</form>
+  </div>
+</div>
 </body>
-</html>
+{% endblock content %}

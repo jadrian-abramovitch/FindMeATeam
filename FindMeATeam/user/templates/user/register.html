@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html>
+{% extends 'game_info/base.html' %}
+{% block content %}
 <head>
 	<title>Register</title>
 </head>
 <body>
-	<div>
+<div class="jumbotron jumbotron-fluid m-3">
+  <div class="container">
+    <h1 class="display-4">Register A New User</h1>
+    <hr class="my-4">
+    	<form method="post">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" name="submit" value="Create Post">
+	</form>
+  </div>
+</div>
+<!-- 	<div>
 		<form method="POST">
 			{% csrf_token %}
 			{{ form }}
 			<input type="submit" name="submit">
 		</form>
-	</div>
+	</div> -->
 </body>
-</html>
+{% endblock content %}

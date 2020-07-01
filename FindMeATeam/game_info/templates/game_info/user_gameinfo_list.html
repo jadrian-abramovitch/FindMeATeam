@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>User Game List</title>
-</head>
+{% extends 'game_info/base.html' %}
+{% load static %}
+{% block content %}
 <body>
-	{% for GameInfo in GameInfos %}
-	<div>Author: {{ GameInfo.author }}</div>
-	<div>Game: {{ GameInfo.game }}</div>
-	<div>Positions: {{ GameInfo.positions_played }}</div>
-	<div>Date: {{ GameInfo.date_posted }}</div>
-	{% endfor %}
+	<h1 style="text-align:center"> {{ user }}'s Posts</h1>
+	<div class="row">
+	  {% for GameInfo in GameInfos %}
+	  <div class="col-sm-4">
+	    <div class="card border-dark my-2" style="display: inline-block; width: 100%;">
+  	      <div class="card-header">Game Info Post</div>
+  	      <div class="card-body text-dark">
+            <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5>
+            <p class="card-text">Game: {{ GameInfo.game }}</p>
+            <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
+            <p class="card-text">Rank: {{ GameInfo.rank }}</p>
+            <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
 </body>
-</html>
+{% endblock content %}

@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html>
+{% extends 'game_info/base.html' %}
+{% block content %}
 <head>
 	<title>Logout</title>
 </head>
 <body>
-	<div>Logged out</div>
-	<a href="{% url 'login' %}">Login Again</a>
-	<a href="{% url 'landing-page' %}">Return Home</a>
+<div class="jumbotron jumbotron-fluid m-3">
+  <div class="container">
+    <h1 class="display-4">Logged out</h1>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-outline-light" href="{% url 'login' %}" role="button" style="background-color: #5a1d3c;">Login Again</a>
+    <a class="btn btn-primary btn-outline-light" href="{% url 'landing-page' %}" role="button" style="background-color: #5a1d3c;">Return Home</a>
+  </div>
+</div>
 </body>
-</html>
+{% endblock content %}
