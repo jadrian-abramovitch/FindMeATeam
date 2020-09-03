@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'game_info.apps.GameInfoConfig',
     'user.apps.UserConfig',
     'landing_page.apps.LandingPageConfig',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

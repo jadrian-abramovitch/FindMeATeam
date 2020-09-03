@@ -1,22 +1,45 @@
-{% extends 'game_info/base.html' %}
+{% extends 'game_info/template.html' %}
 {% load static %}
-{% block content %}
+{% block format %}
 <body>
-	<div class="row">
-	  {% for GameInfo in GameInfos %}
-	  <div class="col-sm-4">
-	    <div class="card border-dark my-2" style="display: inline-block; width: 100%;">
-  	      <div class="card-header">Game Info Post</div>
-  	      <div class="card-body text-dark">
-            <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5>
-            <p class="card-text">Game: {{ GameInfo.game }}</p>
-            <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
-            <p class="card-text">Rank: {{ GameInfo.rank }}</p>
-            <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
-          </div>
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <div class="jumbotron jumbotron-fluid mt-2">
+        <div class="container">
+          <h5>Filter By:</h5>
+          <p class="lead">
+            <form action="" method="get">
+              {{ filter.form.as_p }}
+              <input type="submit" value="Filter"/>
+            </form>
+          </p>
         </div>
       </div>
-      {% endfor %}
     </div>
+    <div class="col-sm-8 text-left">
+      <div class="row">
+      {% for GameInfo in GameInfos %}
+      {% if GameInfo.author != user %}
+      <div class="col-sm-4">
+        <div class="card border-dark my-2" style="display: inline-block; width: 100%;">
+            <div class="card-header">Game Info Post</div>
+            <div class="card-body text-dark">
+              <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5>
+              <p class="card-text">Game: {{ GameInfo.game }}</p>
+              <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
+              <p class="card-text">Rank: {{ GameInfo.rank }}</p>
+              <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+      </div>
+    </div>
+  </div>
 </body>
-{% endblock content %}
+{% endblock format %}

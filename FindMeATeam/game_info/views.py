@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .models import GameInfo
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+from django_filters.views import FilterView
+from .PostFilter import PostFilter
 from django.views.generic import (
 	ListView,
 	DetailView,
@@ -13,13 +15,6 @@ from django.views.generic import (
 )
 
 
-# Create your views here.
-
-# @login_required
-# def home(request):
-# 	return render(request, 'game_info/home.html')
-	#return HttpResponse('<h1>Blog Home</h1>')
-
 class GameInfoCreateView(LoginRequiredMixin, CreateView):
 	model = GameInfo
 	fields = ['game', 'positions_played', 'rank', 'server', 'start_Time_Available', 'end_Time_Available']
@@ -28,9 +23,10 @@ class GameInfoCreateView(LoginRequiredMixin, CreateView):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
 
-class GameInfoListView(ListView):
-	template_name = 'game_info/home.html'
+class GameInfoListView(FilterView):
 	model = GameInfo
+	filterset_class = PostFilter
+	template_name = 'game_info/home.html'
 	ordering = ['-date_posted']
 	context_object_name = 'GameInfos'
 

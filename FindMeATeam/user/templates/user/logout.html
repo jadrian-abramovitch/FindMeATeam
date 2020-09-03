@@ -6,10 +6,16 @@
 <body>
 <div class="jumbotron jumbotron-fluid m-3">
   <div class="container">
-    <h1 class="display-4">Logged out</h1>
+    <h1 class="display-4" style="text-align:center">Logged out</h1>
     <hr class="my-4">
-    <a class="btn btn-primary btn-outline-light" href="{% url 'login' %}" role="button" style="background-color: #5a1d3c;">Login Again</a>
-    <a class="btn btn-primary btn-outline-light" href="{% url 'landing-page' %}" role="button" style="background-color: #5a1d3c;">Return Home</a>
+    <div class="container">
+      <div class="row">
+       <div class="col-sm-5"></div>
+       <a class="btn col-sm-1 btn-primary btn-outline-light" href="{% url 'login' %}" role="button" style="background-color: #5a1d3c;">Login</a>
+       <a class="btn col-sm-1 btn-primary btn-outline-light" href="{% url 'landing-page' %}" role="button" style="background-color: #5a1d3c;">Home</a>
+       <div class="col-sm-5"></div>
+      </div>
+    </div>
   </div>
 </div>
 </body>

@@ -6,8 +6,6 @@ from datetime import datetime
 
 
 
-
-
 class GameInfo(models.Model):
 	LEAGUE_OF_LEGENDS = "LOL"
 	games = [
@@ -56,7 +54,7 @@ class GameInfo(models.Model):
 
 	times = []
 	for i in range(24):
-		times += [(str(i), str(i))]
+		times += [(str(i), str(i)+":00" + " (EST)")]
 
 
 	game = models.CharField(max_length=20, choices=games, default=LEAGUE_OF_LEGENDS)
