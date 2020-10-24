@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://find-me-a-team.herokuapp.com']
+ALLOWED_HOSTS = ['find-me-a-team.herokuapp.com']
 
 
 # Application definition
