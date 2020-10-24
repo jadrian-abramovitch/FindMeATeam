@@ -1,1 +1,1 @@
-web: gunicorn FindMeATeam.wsgi -b 0.0.0.0:$PORT
+web: gunicorn FindMeATeam.wsgi --python FindMeATeam
