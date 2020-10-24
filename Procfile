@@ -1,1 +1,1 @@
-web: gunicorn myportfolio.wsgi -b 0.0.0.0:$PORT
+web: gunicorn find-me-a-team.wsgi -b 0.0.0.0:$PORT
