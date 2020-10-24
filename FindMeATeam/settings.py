@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -127,3 +128,5 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = "home"
 LOGIN_URL = "login"
+
+django_heroku.settings(locals())
