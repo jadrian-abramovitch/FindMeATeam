@@ -25,7 +25,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = 'SECRET_KEY'
+# SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -91,7 +92,7 @@ DATABASES = {
 
 
 # DATABASES = {}
-DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
+# DATABASES['default'].update(dj_database_url.config(conn_max_age=600))
 
 # import dj_database_url
 # db_from_env = dj_database_url.config()
@@ -140,4 +141,4 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = "home"
 LOGIN_URL = "login"
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
