@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'FindMeATeam.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd6be7ck1h8jogc',
+        'HOST': 'ec2-54-160-202-3.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'tlekvioheprvnl',
+        'PASSWORD': 'f7a1ca946ef74daf687587121a196e6625bee7ebf425b70accf48ce16900b2a6',
     }
 }
 
