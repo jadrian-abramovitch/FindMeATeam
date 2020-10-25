@@ -140,4 +140,4 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = "home"
 LOGIN_URL = "login"
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
