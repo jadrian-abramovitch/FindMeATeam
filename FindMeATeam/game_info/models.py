@@ -65,6 +65,7 @@ class GameInfo(models.Model):
 	end_Time_Available = models.CharField(max_length=20, choices=times, default='0')
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
+	in_game_name = models.CharField(max_length = 30)
 
 	def __str__(self):
 		return self.game
