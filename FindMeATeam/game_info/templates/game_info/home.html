@@ -22,9 +22,10 @@
       {% if GameInfo.author != user %}
       <div class="col-sm-4">
         <div class="card border-dark my-2" style="display: inline-block; width: 100%;">
-            <div class="card-header">Game Info Post</div>
+            <!-- <div class="card-header">Game Info Post</div> -->
+            <div class="card-header">{{ GameInfo.author }} Is Looking For A Team!</div>
             <div class="card-body text-dark">
-              <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5>
+              <!-- <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5> -->
               <p class="card-text">Game: {{ GameInfo.game }}</p>
               <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
               <p class="card-text">Rank: {{ GameInfo.rank }}</p>
