@@ -28,7 +28,7 @@
               <!-- <h5 class="card-title">{{ GameInfo.author }} Is Looking For A Team!</h5> -->
               <!-- <p class="card-text">Game: {{ GameInfo.game }}</p> -->
               <p class="card-text">Game:
-                  <img src="{{game_info.get_icon_location}}">
+                  <img src="{% static 'game_info.get_icon_location' %}">
               </p>
               <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
               <p class="card-text">Rank: {{ GameInfo.rank }}</p>
