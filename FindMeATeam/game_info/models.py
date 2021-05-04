@@ -78,8 +78,10 @@ class GameInfo(models.Model):
 	def get_absolute_url(self):
 		return reverse('home')
 
-	def get_icon_location(self):
-		return game_icons[self.game]
+	# def get_icon_location(self):
+	# 	return game_icons[self.game]
+
+	game_icon = game_icons[self.game]
 
 
 
