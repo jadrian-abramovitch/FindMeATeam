@@ -81,4 +81,4 @@ class GameInfo(models.Model):
 
 	def save(self):
 		game_icon = game_icons[game]
-        super().save()
+		super().save()
