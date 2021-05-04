@@ -12,6 +12,11 @@ class GameInfo(models.Model):
 		(LEAGUE_OF_LEGENDS, 'League of Legends')
 	]
 
+	game_icons = {
+		LEAGUE_OF_LEGENDS: "/../staticfiles/LOL-logo.jpg"
+	}
+	
+
 	positions = [
 		('Top', 'Top'),
 		('Jungle', 'Jungle'),
@@ -72,6 +77,9 @@ class GameInfo(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('home')
+
+	def get_icon_location(self):
+		return game_icons[self.game]
 
 
 
