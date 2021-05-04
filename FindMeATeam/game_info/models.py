@@ -63,6 +63,7 @@ class GameInfo(models.Model):
 
 
 	game = models.CharField(max_length=20, choices=games, default=LEAGUE_OF_LEGENDS)
+	game_icon = models.CharField(max_length=40, default=game_icons[LEAGUE_OF_LEGENDS])
 	positions_played = models.CharField(max_length=7, choices=positions, default='Top')
 	rank = models.CharField(max_length=20, choices=ranks, default='Challenger')
 	server = models.CharField(max_length=5, choices=servers, default='NA')
@@ -78,7 +79,6 @@ class GameInfo(models.Model):
 	def get_absolute_url(self):
 		return reverse('home')
 
-	# def get_icon_location(self):
-	# 	return game_icons[self.game]
-
-	game_icon = game_icons[game]
+	def save(self):
+		game_icon = game_icons[game]
+        super().save()
