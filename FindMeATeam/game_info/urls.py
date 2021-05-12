@@ -10,3 +10,5 @@ urlpatterns = [
 	path('update/<int:pk>/', GameInfoUpdateView.as_view(), name='update'),
 	path('delete/<int:pk>/', GameInfoDeleteView.as_view(), name='delete')
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

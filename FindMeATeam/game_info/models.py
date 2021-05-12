@@ -81,5 +81,5 @@ class GameInfo(models.Model):
 
 	@property
 	def img_url(self):
-		return static("{}.jpg".format(self.game))
+		return static("{}".format(self.game))
 	
