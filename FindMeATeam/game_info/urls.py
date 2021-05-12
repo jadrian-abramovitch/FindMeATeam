@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import GameInfoCreateView, GameInfoListView, GameInfoDetailView, UserGamesList, GameInfoUpdateView, GameInfoDeleteView
 from django.templatetags.static import static
+import settings
 
 urlpatterns = [
 	path('', GameInfoListView.as_view(), name='home'),
