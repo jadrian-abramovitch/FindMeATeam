@@ -25,10 +25,10 @@
             <!-- <div class="card-header">Game Info Post</div> -->
             <h5 class="card-header">{{ GameInfo.author }} Is Looking For A Team!</h5>
             <div class="card-body text-dark">
-             <!-- <p class="card-text">Game: {{ GameInfo.game }}</p> -->
-              <p class="card-text">Game:
-                  <img src="{{ GameInfo.img_url }}">
-              </p>
+             <p class="card-text">Game: {{ GameInfo.game }}</p>
+<!--               <p class="card-text">Game:
+                  <img src="{% static GameInfo.img_url %}">
+              </p> -->
               <p class="card-text">Positions: {{ GameInfo.positions_played }}</p>
               <p class="card-text">Rank: {{ GameInfo.rank }}</p>
               <a href="{% url 'view' GameInfo.id %}" class="stretched-link"></a>
