@@ -17,11 +17,21 @@ from django.views.generic import (
 
 class GameInfoCreateView(LoginRequiredMixin, CreateView):
 	model = GameInfo
-	fields = ['game', 'positions_played', 'rank', 'server', 'start_Time_Available', 'end_Time_Available', 'in_game_name']
+	readonly_fields = ['time_Zone']
+	fields = ['game', 'positions_played', 'rank', 'server', 'start_Time_Available', 'end_Time_Available', 'in_Game_Name']
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
+
+# class GameInfoCreateView(LoginRequiredMixin, CreateView):
+# 	form_class = GameInfoForm
+# 	template_name = 'game_info/gameinfo_form.html'
+
+# 	def form_valid(self, form):
+# 		form.instance.author = self.request.user
+# 		return super().form_valid(form)
+
 
 class GameInfoListView(FilterView):
 	model = GameInfo
@@ -33,7 +43,8 @@ class GameInfoListView(FilterView):
 
 class GameInfoDetailView(DetailView):
 	model = GameInfo
-	fields = ['game', 'positions_played', 'rank', 'server', 'start_Time_Available', 'end_Time_Available', 'in_game_name']
+	readonly_fields = ['time_Zone']
+	fields = ['game', 'positions_played', 'rank', 'server', 'start_Time_Available', 'end_Time_Available', 'in_Game_Name']
 
 class UserGamesList(ListView):
 	model = GameInfo

@@ -39,23 +39,23 @@ class GameInfo(models.Model):
 	]
 
 	servers = [
-		('BR', 'BR'),
-		('EUNE', 'EUNE'),
-		('EUW', 'EUW'),
-		('LAN', 'LAN'),
-		('LAS', 'LAS'),
-		('NA', 'NA'),
-		('OCE', 'OCE'),
-		('RU', 'RU'),
-		('TR', 'TR'),
-		('JP', 'JP'),
-		('KR', 'KR'),
-		('CN', 'CN'),
-		('TW', 'TW'),
-		('SAM', 'SAM'),
-		('VN', 'VN'),
-		('TH', 'TH'),
-		('PH', 'PH')
+		('BR', 'BR(BRT)'),
+		('EUNE', 'EUNE(CEST)'),
+		('EUW', 'EUW(CEST)'),
+		('LAN', 'LAN(EDT)'),
+		('LAS', 'LAS(CLT)'),
+		('NA', 'NA(PST)'),
+		('OCE', 'OCE(AEST)'),
+		('RU', 'RU(CEST)'),
+		('TR', 'TR(TRT)'),
+		('JP', 'JP(JST)'),
+		('KR', 'KR(KST)'),
+		('CN', 'CN(CST)'),
+		('TW', 'TW(CST)'),
+		('SAM', 'SAM(SGT)'),
+		('VN', 'VN(ICT)'),
+		('TH', 'TH(ICT)'),
+		('PH', 'PH(PHST)'),
 	]
 
 	times = []
@@ -67,11 +67,13 @@ class GameInfo(models.Model):
 	positions_played = models.CharField(max_length=7, choices=positions, default='Top')
 	rank = models.CharField(max_length=20, choices=ranks, default='Challenger')
 	server = models.CharField(max_length=5, choices=servers, default='NA')
-	start_Time_Available = models.CharField(max_length=20, choices=times, default='0')
-	end_Time_Available = models.CharField(max_length=20, choices=times, default='0')
+	# start_Time_Available = models.CharField(max_length=20, choices=times, default='0')
+	# end_Time_Available = models.CharField(max_length=20, choices=times, default='0')
+	start_Time_Available = models.TimeField(auto_now=False, auto_now_add=False)
+	end_Time_Available = models.TimeField(auto_now=False, auto_now_add=False)
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
-	in_game_name = models.CharField(max_length = 30)
+	in_Game_Name = models.CharField(max_length = 30)
 
 	def __str__(self):
 		return self.game
