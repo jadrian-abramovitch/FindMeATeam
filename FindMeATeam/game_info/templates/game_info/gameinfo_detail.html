@@ -1,4 +1,5 @@
 {% extends 'game_info/base.html' %}
+{% load static %}
 {% block content %}
 <div class="jumbotron jumbotron-fluid m-3">
   <div class="container">
@@ -21,6 +22,9 @@
         
     <hr class="my-4">
     <p class="lead">Game: {{ object.game }}</p>
+    <div class="col-sm-4">
+      <img src="{% static object.img_url %}" class="img-fluid">
+    </div>
     <p class="lead">Positions: {{ object.positions_played }}</p>
     <p class="lead">Date: {{ object.date_posted }}</p>
     <p class="lead">Server: {{ object.server }}</p>
